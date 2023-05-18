@@ -31,6 +31,19 @@ console.log("nullTypeVariable " +nullTypeVariable );
 var variable1 = null;
 console.log(variable1);    //null
 
+//typeof
+var name = "Ram";
+var age = 25;
+var status = true;
+var type = null;
+var id ;
+
+console.log(typeof name);        //string
+console.log(typeof age);         //number
+console.log(typeof status );      // boolean
+console.log(typeof type);         // object
+console.log(typeof id);            // undefined
+console.log(typeof "23");
 
 
 

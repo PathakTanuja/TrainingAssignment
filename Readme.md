@@ -17,4 +17,9 @@ output undefined
 Null : declare the variable and assign the value ,but the value is null.
 var variable = null;
 
+// typeof 
+to check the variable and value type we use typeOf in java script because no concept of data type in java script
+typeof variablename
+typeof value
+
 
