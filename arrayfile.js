@@ -27,8 +27,7 @@ else {
 function calculateEmployeeSalary(perDaySalary, totalWorkingDay){
     return console.log(perDaySalary*totalWorkingDay);
 }
-
-calculateEmployeeSalary(5000, 25);
+calculateEmployeeSalary(5000, 25);  // call function
 // lambda function
 const myFun = (a,b) => {
  return a*b;
