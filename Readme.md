@@ -22,4 +22,20 @@ to check the variable and value type we use typeOf in java script because no con
 typeof variablename
 typeof value
 
+//Type Coercion & === operator
+Type Coercion : The process of converting  value the from one data type to another data type .
+**String conversion :  using String() function do explicit conversion 
+String(123)
+123 + " "
+**Boolean Conversion 
+Boolean(2)
+if(2) { }
+!!2
+2 || 'hello'
+Number Conversion
+Number('123')
+4 > '5'
+
+
+
 

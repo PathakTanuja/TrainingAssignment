@@ -1,30 +1,29 @@
 
 //Primitive Type
-var stringTypeVariable = "Hello";
-var numberTypeVariable = 23;
-var booleanTypeVariable = true;
-
-var undefinedTypeVariable ;
-var nullTypeVariable = null;
-
-console.log("stringTypeVariable " +stringTypeVariable );
-
-console.log("numberTypeVariable " +numberTypeVariable );
-
-console.log("booleanTypeVariable " +booleanTypeVariable );
-
-console.log("undefinedTypeVariable " +undefinedTypeVariable );
-
-console.log("nullTypeVariable " +nullTypeVariable );
-
-
+    var stringTypeVariable = "Hello";
+    var numberTypeVariable = 23;
+    var booleanTypeVariable = true;
+    
+    var undefinedTypeVariable ;
+    var nullTypeVariable = null;
+    
+    console.log("stringTypeVariable " +stringTypeVariable );
+    
+    console.log("numberTypeVariable " +numberTypeVariable );
+    
+    console.log("booleanTypeVariable " +booleanTypeVariable );
+    
+    console.log("undefinedTypeVariable " +undefinedTypeVariable );
+    
+    console.log("nullTypeVariable " +nullTypeVariable );
+      
 //Undefine Vs Null
 
 // Declare the variable
- var variable;
- console.log(variable);   //undefined
- variable =  10;
- console.log(variable);  //10
+var variable;
+console.log(variable);   //undefined
+variable =  10;
+console.log(variable);  //10
 
 //Declare the varible and assign the null value
 
@@ -45,6 +44,63 @@ console.log(typeof type);         // object
 console.log(typeof id);            // undefined
 console.log(typeof "23");
 
+
+//Type coercion
+const  var_1 = "10"
+const var_2 = 10 ;
+var result = var_1 + var_2 ;
+console.log("expected result: 10+10 = 20");
+
+console.log("actual result is : " + result);    //1010
+var result1 = Number(var_1) + var_2 ;
+console.log("Now actual result is : " + result1);  //20
+
+// concept of ""=== "" operator 
+   
+    if ( var_1 == var_2){    // == only check value 
+        console.log("Both are equal");
+    }
+    else 
+    console.log("not equal");
+    
+   
+    if ( var_1 === var_2){   // === check value and also check type of variable
+        console.log("Both are equal");
+    }
+    else 
+    console.log("not equal");
+
+    var variablecheck = 10;
+    if(variablecheck) {
+        console.log("True")}
+        else 
+        console.log("false");
+
+        //Object
+        const userObject = {};
+        userObject.name = "Sonali";
+        userObject.company = "XYZ";
+        userObject.location = "Pune";
+        userObject.workType = "Private";
+        console.log(userObject);
+
+        // another way to create object
+        const userObject1 = {"name" : "Aaditya" ,"company": "XYZ","location" :"Pune","workType":"Govt"};
+        console.log(userObject1);
+
+        //access the object attribute
+
+        console.log(userObject1.name);
+
+        //create object inside another object
+        const userObject2= {
+            "name" : "Aaditya" ,
+            "company": "XYZ",
+            "location" :"Pune",
+            "workType":"Govt",
+            "address" : { "city" : "pune" , "state": "Maharashtra"}
+        };
+        console.log(userObject2);
 
 
 
