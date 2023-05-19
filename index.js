@@ -100,7 +100,25 @@ console.log("Now actual result is : " + result1);  //20
             "workType":"Govt",
             "address" : { "city" : "pune" , "state": "Maharashtra"}
         };
+    
         console.log(userObject2);
+
+// the dot and bracket notation : to access the property 
+   console.log(userObject2.address);   //use dot notation
+   console.log(userObject2["workType"]);  //use bracket notation
+
+     checkObject = {
+        "1" : "Description ",
+        "2" : "Bracket notation used"
+     };
+      
+     // console.log(checkObject.1);     // dot notation used only with leggal property name
+     console.log(checkObject["1"]);
+
+   
+ 
+
+
 
 
 
