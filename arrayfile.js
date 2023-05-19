@@ -1,6 +1,7 @@
 //create array 
 
 // arrayname = [] ;
+
 const employee = [];
 employee.push("Rahul");   // add value
 employee.push("Ajay");  
@@ -21,6 +22,18 @@ else {
     console.log(employee);
 }
 
+// function
+
+function calculateEmployeeSalary(perDaySalary, totalWorkingDay){
+    return console.log(perDaySalary*totalWorkingDay);
+}
+
+calculateEmployeeSalary(5000, 25);
+// lambda function
+const myFun = (a,b) => {
+ return a*b;
+}
+console.log(myFun(200,30));
 
 
 
