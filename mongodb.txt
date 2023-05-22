@@ -155,3 +155,110 @@ customerdb> db.kyc_user.deleteOne( { "name" : "Yogesh"} )
 
 
 
+// AND-  OR CONDITION
+
+
+
+db.collectionname.find( { condition 1 , condition 2 })     //  for AND condition using ,
+db.collectionname.find( { “fieldname1” : “value” , “fieldname2” : “value “ })
+
+customerdb> db.kyc_user.find( { "gender": "female","age":35})
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+
+db.collectionname.find() { $or : [ { condition1 } , {condition2} , … {  condition n } ] }
+
+customerdb> db.kyc_user.find( {$or : [{ "gender": "female" }, {"age":35}  ] })
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+//AND OR in one statement
+db.collectionname.find( { condition1 , $or : [ {condition1},{condition2}... ] } )   // condition1 AND (condition1 OR Condition 2)
+
+customerdb> db.kyc_user.find({ "address": "pune", $or: [{ "gender": "female" }, { "age": 35 }] } )
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+
+
