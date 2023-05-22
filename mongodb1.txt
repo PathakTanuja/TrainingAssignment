@@ -161,3 +161,183 @@ customerdb> db.kyc_user.find( { }, { "name" : 1} )
   { _id: ObjectId("646b2050e2be17a1881d5745"), name: 'Renuka' }
 ]
 
+//using limit()  
+
+customerdb> db.kyc_user.find( { }, { "name" : 1  , "age" :1  } ).limit(2)   // fetching only two record
+[
+  { _id: ObjectId("646b1d8be2be17a1881d573f"), name: 'Jay', age: 20 },
+  { _id: ObjectId("646b1f7be2be17a1881d5740"), name: 'Sita', age: 35 }
+]
+
+
+customerdb> db.kyc_user.find()
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Renuka',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+db.collectionname.find( {}, { “fieldname”: 1, “fieldname” :1 }).skip(how many document skip).limit(how many document show) )
+
+customerdb> db.kyc_user.find( { }, { "name" : 1  , "age" :1  } ).skip(3).limit(2)  // skip first 3 document and show 2 document
+[
+  { _id: ObjectId("646b2050e2be17a1881d5742"), name: 'Mark', age: 18 },
+  { _id: ObjectId("646b2050e2be17a1881d5743"), name: 'Jaya', age: 30 }
+]
+
+db.collectionname.find().sort( {“fieldname”: 1})  // sorting perform in Ascending order according to field 
+
+
+customerdb> db.kyc_user.find().sort( { "age":1} )
+[
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Renuka',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+
+db.collectionname.find().sort( {“fieldname”: -1})   // sorting perform in  Descending order according to field value
+customerdb> db.kyc_user.find().sort( { "age":-1} )  
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Renuka',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  }
+]
+
+
+
