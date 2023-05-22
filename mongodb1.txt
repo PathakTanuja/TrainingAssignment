@@ -1,0 +1,143 @@
+//find document with condition  used 
+$gt --- greater than
+$lt  -- less than
+$gte -- greater than equal
+$lte --- less than equal
+$ne --- not equal
+
+ db.collectionname.find( { fieldname : { condition } })
+
+customerdb> db.kyc_user.find( {  age : { $gt:30 } } )          // age is greater than 30
+
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+
+
+customerdb> db.kyc_user.find( {  age : { $lt:30 } } )	// age is less than 30
+
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5744"),
+    name: 'Yogesh',
+    age: 26,
+    address: 'Delhi',
+    contact: 8165434666,
+    gender: 'male'
+  }
+]
+
+customerdb> db.kyc_user.find( {  age : { $lte:30 } } ).pretty()          //less than equal 
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5744"),
+    name: 'Yogesh',
+    age: 26,
+    address: 'Delhi',
+    contact: 8165434666,
+    gender: 'male'
+  }
+]
+
+
+customerdb> db.kyc_user.find( {  age : { $gte:30 } } ).pretty()     // greater than equal to   $ gte
+[
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5743"),
+    name: 'Jaya',
+    age: 30,
+    address: 'mumbai',
+    contact: 9865434660,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+]
+
+customerdb> db.kyc_user.find( {  age : { $ne:35 } } ).pretty()   //  $ne not equal 
