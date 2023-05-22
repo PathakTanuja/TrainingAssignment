@@ -141,3 +141,23 @@ customerdb> db.kyc_user.find( {  age : { $gte:30 } } ).pretty()     // greater t
 ]
 
 customerdb> db.kyc_user.find( {  age : { $ne:35 } } ).pretty()   //  $ne not equal 
+
+
+// Distinct data
+
+customerdb> db.kyc_user.distinct("address")
+[ 'delhi', 'mumbai', 'pune' ]
+
+//Projection  
+Selecting only necessary data rather than selecting whole of the data of a document
+
+customerdb> db.kyc_user.find( { }, { "name" : 1} )
+[
+  { _id: ObjectId("646b1d8be2be17a1881d573f"), name: 'Jay' },
+  { _id: ObjectId("646b1f7be2be17a1881d5740"), name: 'Sita' },
+  { _id: ObjectId("646b2050e2be17a1881d5741"), name: 'Radha' },
+  { _id: ObjectId("646b2050e2be17a1881d5742"), name: 'Mark' },
+  { _id: ObjectId("646b2050e2be17a1881d5743"), name: 'Jaya' },
+  { _id: ObjectId("646b2050e2be17a1881d5745"), name: 'Renuka' }
+]
+
