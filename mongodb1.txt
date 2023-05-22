@@ -161,7 +161,7 @@ customerdb> db.kyc_user.find( { }, { "name" : 1} )
   { _id: ObjectId("646b2050e2be17a1881d5745"), name: 'Renuka' }
 ]
 
-//using limit()  
+//using limit()  to fetch data
 
 customerdb> db.kyc_user.find( { }, { "name" : 1  , "age" :1  } ).limit(2)   // fetching only two record
 [
