@@ -14,4 +14,144 @@ Use databasename
 
 test> use customerdb
 switched to db customerdb
+//CRUD operation
+
+
+// create collection 
+
+db.createCollection(“collectionname”)
+
+customerdb> db.createCollection("kyc_user")
+{ ok: 1 }
+
+
+ // show collections
+
+customerdb> show collections
+Kyc_user
+//insert the data in collection
+db.collectionname.insert({field1:”value” ,  field2: value , ..}) 
+  or
+db.collectionname.insertOne({field1:”value” ,  field2: value , ..})
+
+customerdb> db.kyc_user.insert({ name:"Jay" ,age:20 ,address: "pune",contact:9865434666,gender:"male"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("646b1d8be2be17a1881d573f") }
+}
+customerdb> db.kyc_user.find()
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  }
+]
+
+
+
+
+// insert multiple document 
+db.collectionname.insertMany(  [  {field1:”value” ,  field2: value , ..},{field1:”value” ,  field2: value , ..},{field1:”value” ,  field2: value , ..},{field1:”value” ,  field2: value , ..}.........]  )
+
+customerdb> db.kyc_user.insertMany([{ name:"Radha" ,age:35 ,address: "pune",contact:9865478666,gender:"female"},{ name:"Mark" ,age:18 ,address: "delhi",contact:9885434666,gender:"male"},{ name:"Jaya" ,age:30 ,address: "mumbai",contact:9865434660,gender:"female"},{ name:"Yogesh" ,age:26 ,address: "Delhi",contact:8165434666,gender:"male"},{ name:"Rahul" ,age:35 ,address: "pune",contact:98654344466,gender:"female"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("646b2050e2be17a1881d5741"),
+    '1': ObjectId("646b2050e2be17a1881d5742"),
+    '2': ObjectId("646b2050e2be17a1881d5743"),
+    '3': ObjectId("646b2050e2be17a1881d5744"),
+    '4': ObjectId("646b2050e2be17a1881d5745")
+  }
+}
+
+//select the data 
+db.collectionname.find()
+
+// pretty() 
+db.collectionname.find().pretty()
+
+customerdb> db.kyc_user.find().pretty()
+
+//find document with condition 
+
+customerdb> db.kyc_user.find({"address":"pune"})
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b1f7be2be17a1881d5740"),
+    name: 'Sita',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5741"),
+    name: 'Radha',
+    age: 35,
+    address: 'pune',
+    contact: 9865478666,
+    gender: 'female'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+
+  //Update document 
+db.collectionname.update( { “fieldname”: “value” } , {$set : { “fieldname” : “updatevalue”} })
+
+customerdb> db.kyc_user.update( { "_id":ObjectId("646b2050e2be17a1881d5745") },{$set: {"name":"Renuka"}})
+
+Before
+  {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Rahul',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+After update
+ {
+    _id: ObjectId("646b2050e2be17a1881d5745"),
+    name: 'Renuka',
+    age: 35,
+    address: 'pune',
+    contact: 98654344466,
+    gender: 'female'
+  }
+
+
+//Remove
+
+Use databasename
+db.dropDatabase()
+
+db.collectionname.deleteOne( {condition })
+Or
+db.collectionname.deleteMany( {condition })
+
+
+customerdb> db.kyc_user.deleteOne( { "name" : "Yogesh"} )
+{ acknowledged: true, deletedCount: 1 }
+
+
 
