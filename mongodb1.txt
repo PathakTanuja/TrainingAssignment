@@ -357,3 +357,55 @@ db.kyc_user.dropIndex({name : 1})
     db.kyc_user.createIndex({field1 : type, field2: type})  //to create mutiple indexes
 
         db.kyc_user.createIndex({name : 1, age: -1})
+
+
+  //Aggregation
+  Aggregation is the process of selecting data from a collection in MongoDB. It processes multiple documents and returns computed results.
+Use aggregation to group values from multiple documents, or perform operations on the grouped data to return a single result.
+
+  db.collectionname.aggregate( [ {$stage : {expression , {accumulator}}}])
+Stages: Each stage starts from stage operators which are:
+$match: It is used for filtering the documents can reduce the amount of documents that are given as input to the next stage.The $match stage is usually the first stage to select only the matching documents from a collection. It is equivalent to the Find
+$project: It is used to select some specific fields from a collection.
+$group: It is used to group documents based on some value.
+$sort: It is used to sort the document that is rearranging them
+$skip: It is used to skip n number of documents and passes the remaining documents
+$limit: It is used to pass first n number of documents thus limiting them.
+
+
+Accumulators: These are basically used in the group stage
+sum: It sums numeric values for the documents in each group
+count: It counts total numbers of documents
+avg: It calculates the average of all given values from all documents
+min: It gets the minimum value from all the documents
+max: It gets the maximum value from all the documents
+first: It gets the first document from the grouping
+last: It gets the last document from the grouping
+
+  customerdb> db.kyc_user.aggregate( [{$match: {gender: 'male'}}])
+[
+  {
+    _id: ObjectId("646b1d8be2be17a1881d573f"),
+    name: 'Jay',
+    age: 20,
+    address: 'pune',
+    contact: 9865434666,
+    gender: 'male'
+  },
+  {
+    _id: ObjectId("646b2050e2be17a1881d5742"),
+    name: 'Mark',
+    age: 18,
+    address: 'delhi',
+    contact: 9885434666,
+    gender: 'male'
+  }
+]
+
+customerdb> db.kyc_user.aggregate([{$group:{_id:'$gender'}}])
+[ { _id: 'female' }, { _id: 'male' } ]
+
+customerdb> db.kyc_user.aggregate([{$group:{_id:'$gender', total: {$sum:1}}}])
+[ { _id: 'male', total: 2 }, { _id: 'female', total: 4 } ]
+db.kyc_user.aggregate([{$match:{gender:'female'}}])
+
