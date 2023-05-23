@@ -339,5 +339,21 @@ customerdb> db.kyc_user.find().sort( { "age":-1} )
   }
 ]
 
+//Indexing
 
+ db.collectionname.createIndex({field : 1 or -1}) // to create Indexing
+// type is 1 for Ascending  and -1 for Descending
+db.kyc_user.createIndex({name : 1})
 
+  db.collectionname.getIndexes()     // to show the index in collection
+  
+ db.kyc_user.getIndexes() 
+
+   db.collectionname.dropIndex({field: type})  // to delete index
+
+db.kyc_user.dropIndex({name : 1})
+
+//Compound Index  holds a refrence to multiple fields of collection
+    db.kyc_user.createIndex({field1 : type, field2: type})  //to create mutiple indexes
+
+        db.kyc_user.createIndex({name : 1, age: -1})
